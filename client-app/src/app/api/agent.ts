@@ -4,7 +4,7 @@ import { toast } from 'react-toastify';
 import { router } from '../router/Routes';
 import { store } from '../stores/store';
 import { User, UserFormValues } from '../layout/models/user';
-import { Photo, Profile } from '../layout/models/profile';
+import { Photo, Profile, UserActivity } from '../layout/models/profile';
 import { PaginatedResult } from '../layout/models/paginations';
 
 const sleep = (delay: number) => {
@@ -108,7 +108,9 @@ const Profiles = {
   updatePhoto: (profile: Partial<Profile>) => requests.put(`/profiles`, profile),
   updateFollowing: (username: string ) => requests.post(`/follow/${username}`,{}),
   listFollowing: (username :string, predicate:string) => 
-    requests.get<Profile[]>(`/follow/${username}?predicate=${predicate}`)
+    requests.get<Profile[]>(`/follow/${username}?predicate=${predicate}`),
+  listActivities: (username:string, predicate: string) =>
+    requests.get<UserActivity[]>(`/profiles/${username}/activities?predicate=${predicate}`)
 
 }
 
