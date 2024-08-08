@@ -31,7 +31,7 @@ import ActivityListItemPlaceholder from "./ActivityListItemPlaceholder";
      return(
          <Grid>
               <Grid.Column width= '10'>
-                {activityStore.loadingInitial && activityRegistry.size ===0 && !loadingNext ? (
+                {activityStore.loadingInitial && activityRegistry.size === 0 && !loadingNext ? (
                   <>
                      <ActivityListItemPlaceholder />
                      <ActivityListItemPlaceholder />
